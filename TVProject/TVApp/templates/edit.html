@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TV Shows</title>
+</head>
+<body>
+    <form action="/shows/{{ show.id }}" method="post"> 
+        {% csrf_token%}
+        <h1>Edit Show {{ show.id }}</h1>
+        <a href="/shows">Go Back</a>
+
+        <p>
+            <label for="title">Title</label><input placeholder={{ show.title }} type="text" name="title"/>
+        </p>
+        <p id = "mid_part">
+            <label for="network">Network</label><input placeholder={{ show.network }} type="text" name="network"/>
+            <label for="release_date">Release Date</label><input type="date" name="release_date"/>
+        </p>
+        <p>
+            <label for="desc">Description</label><input type="text" name="desc"/>
+        </p>
+        <button id="small_button" type="submit">Update</button>
+        <a href="/shows/{{ show.id }}">Go to Show</a>
+
+    </form>
+
+    
+</body>
+</html>

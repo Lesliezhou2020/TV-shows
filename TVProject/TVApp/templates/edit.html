@@ -6,10 +6,17 @@
     <title>TV Shows</title>
 </head>
 <body>
-    <form action="/shows/{{ show.id }}" method="post"> 
+    <form action="/shows/{{ show.id }}/update" method="post"> 
         {% csrf_token%}
         <h1>Edit Show {{ show.id }}</h1>
         <a href="/shows">Go Back</a>
+        {% if messages %}
+        <ul class="messages">    
+            {% for message in messages %}    
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+            {% endfor %}
+        </ul>
+        {% endif %}
 
         <p>
             <label for="title">Title</label><input placeholder={{ show.title }} type="text" name="title"/>
